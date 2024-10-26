@@ -17,8 +17,21 @@
 
 .right-section {
   display: flex;
+  align-items: center;
   gap: 24px;
   flex: 1;
+}
+
+.tooltip-container {
+  display: flex;
+  position: relative;
+  max-width: 640px;
+  min-width: 180px;
+  width: 100%;
+}
+
+.header .right-section .search-active {
+  max-width: 977px !important;
 }
 
 .search-bar {
@@ -29,9 +42,10 @@
   font-size: 16px;
   line-height: 22px;
   color: #dedede !important;
-  max-width: 640px;
-  min-width: 180px;
+  /* max-width: 640px;
+  min-width: 180px; */
   width: 100%;
+  position: relative;
 }
 
 .mid-section {

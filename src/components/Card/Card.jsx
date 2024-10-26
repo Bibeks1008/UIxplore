@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import "./card.css";
 import sample_img from "../../assets/images/sample_image.png";
@@ -11,7 +12,7 @@ const Card = () => {
       <div className="card-footer">
         <div className="color-container"></div>
         <span className="card-title">Jive</span>
-        <AiOutlineHeart className="favourite-icon"/>
+        <AiOutlineHeart className="favourite-icon" />
       </div>
     </div>
   );
