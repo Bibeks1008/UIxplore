@@ -1,6 +1,7 @@
 .body-container {
   padding-top: 119px;
-  padding-left: 150px;
-  padding-right: 150px;
   margin-bottom: 15px;
+  min-height: calc(100vh - 309px);
+  width: 80%;
+  margin: 0 auto;
 }

@@ -11,10 +11,6 @@
 
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
   gap: 56px;
   /* position: relative;
   bottom: 0;
@@ -28,6 +24,7 @@
 .footer-top {
   width: 100%;
   display: flex;
+  row-gap: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;

@@ -6,6 +6,7 @@ import "./App.css";
 
 import Contextprovider from "./Context/Context";
 import SearchSubcategory from "./components/SearchSubcategory/SearchSubcategory";
+import CardContainer from "./components/CardContainer/CardContainer";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           </div>
 
           <Searchcategory />
-          <SearchSubcategory/>
+          <SearchSubcategory />
+          <CardContainer />
         </Boxcontainer>
         <Footer />
       </Contextprovider>

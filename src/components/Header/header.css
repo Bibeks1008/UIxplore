@@ -7,7 +7,7 @@
   padding-top: 14px;
   align-items: center;
   background-color: #15131a;
-  /* width: 100vw; */
+  width: 100%;
 }
 
 .header-img {
@@ -18,10 +18,10 @@
 .right-section {
   display: flex;
   gap: 24px;
+  flex: 1;
 }
 
 .search-bar {
-  width: 600px;
   border-radius: 50px;
   background-color: #242328;
   padding: 12px 27px;
@@ -29,6 +29,9 @@
   font-size: 16px;
   line-height: 22px;
   color: #dedede !important;
+  max-width: 640px;
+  min-width: 180px;
+  width: 100%;
 }
 
 .mid-section {

@@ -12,7 +12,6 @@ const SearchSubcategory = () => {
 
   const scrollContainerRef = useRef();
 
-  // const [isOverflowing, setIsOverflowing] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -28,7 +27,7 @@ const SearchSubcategory = () => {
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === "right" ? 100 : -100; // Adjust scroll amount as needed
+      const scrollAmount = direction === "right" ? 100 : -100;
       scrollContainerRef.current.scrollBy({
         left: scrollAmount,
         behavior: "smooth",
@@ -37,7 +36,6 @@ const SearchSubcategory = () => {
     }
   };
 
-  // Check for overflow on component mount and whenever the window resizes
   useEffect(() => {
     checkOverflow();
     window.addEventListener("resize", checkOverflow);
