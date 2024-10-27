@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import "./header.css";
 
@@ -26,7 +27,10 @@ const Header = () => {
 
   return (
     <div className="header">
-      <img src={logo} alt="header-logo" className="header-img" />
+      <Link to="/">
+        <img src={logo} alt="header-logo" className="header-img" />
+      </Link>
+
       <div className="right-section">
         <div
           className={

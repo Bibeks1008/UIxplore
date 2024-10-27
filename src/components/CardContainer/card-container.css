@@ -1,7 +1,8 @@
 .card-container {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 100px;

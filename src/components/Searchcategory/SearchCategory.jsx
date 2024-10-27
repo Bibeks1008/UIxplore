@@ -9,6 +9,7 @@ import { UiverseContext } from "../../Context/Context";
 const Searchcategory = () => {
   const { activeCategory, setActiveCategory } = useContext(UiverseContext);
 
+ 
   return (
     <div className="search-category">
       {[...Array(5).keys()].map((index) => (

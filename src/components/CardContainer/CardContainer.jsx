@@ -7,7 +7,7 @@ const CardContainer = () => {
   return (
     <div className="card-container">
       {[...Array(5).keys()].map((index) => (
-        <Card key={index} />
+        <Card key={index} id={index} />
       ))}
     </div>
   );

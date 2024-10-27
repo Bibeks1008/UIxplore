@@ -13,11 +13,13 @@ const SearchTooltip = ({ setIsSearching }) => {
     setActiveSubcategory(value);
     setIsSearching(false);
   };
+
   return (
     <div className="tooltip">
       <div className="searchbar-category-container">
         {[...Array(5).keys()].map((index) => (
           <div
+            key={index}
             className={
               activeCategory === index
                 ? "searchbar-category active"
@@ -35,8 +37,9 @@ const SearchTooltip = ({ setIsSearching }) => {
         <div className="searchbar-subcategory">
           {[...Array(10).keys()].map((index) => (
             <div
+              key={index}
               className="searchbar-subcategory-title"
-              onClick={(index) => handleSubcategoryClick(index)}
+              onClick={() => handleSubcategoryClick(index)}
             >
               Project Management
             </div>

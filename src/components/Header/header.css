@@ -7,7 +7,10 @@
   padding-top: 14px;
   align-items: center;
   background-color: #15131a;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto !important;
+  left: 50%; /* Center the left edge of the header */
+  transform: translateX(-50%);
 }
 
 .header-img {
@@ -25,7 +28,7 @@
 .tooltip-container {
   display: flex;
   position: relative;
-  max-width: 640px;
+  max-width: 688px;
   min-width: 180px;
   width: 100%;
 }
