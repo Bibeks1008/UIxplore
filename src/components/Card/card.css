@@ -48,3 +48,26 @@
   width: 20px;
   height: 20px;
 }
+
+.logo-image {
+  width: 25px;
+  object-fit: cover;
+}
+
+.element-img {
+  width: 340px;
+  height: 192px;
+  border-radius: 8px;
+  /* object-fit: contain; */
+}
+
+.color-display {
+  width: 340px;
+  height: 192px;
+  display: flex;
+  border-radius: 10px !important;
+}
+
+.individual-color {
+  flex: 1;
+}

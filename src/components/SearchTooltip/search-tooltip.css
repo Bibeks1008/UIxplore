@@ -1,3 +1,5 @@
+@import url("non.geist");
+
 .tooltip {
   position: absolute;
   top: calc(100% + 10px);
@@ -55,7 +57,7 @@
 
 .searchbar-subcategory-container .heading {
   color: #fff;
-  font-family: Geist;
+  font-family: "Geist Variable";
   font-size: 18px;
   font-style: normal;
   font-weight: 600;

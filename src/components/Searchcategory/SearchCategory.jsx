@@ -9,18 +9,19 @@ import { UiverseContext } from "../../Context/Context";
 const Searchcategory = () => {
   const { activeCategory, setActiveCategory } = useContext(UiverseContext);
 
- 
   return (
     <div className="search-category">
-      {[...Array(5).keys()].map((index) => (
-        <button
-          key={index}
-          className={activeCategory === index ? "active" : ""}
-          onClick={() => setActiveCategory(index)}
-        >
-          Website
-        </button>
-      ))}
+      {["Websites", "UI Elements", "Color System", "Type System"].map(
+        (category, index) => (
+          <button
+            key={index}
+            className={activeCategory === category ? "active" : ""}
+            onClick={() => setActiveCategory(category)}
+          >
+            {category}
+          </button>
+        )
+      )}
 
       <div className="filter-image-container">
         <img src={filterLogo} className="filter-img"></img>

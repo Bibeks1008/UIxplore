@@ -6,8 +6,12 @@ import "./search-tooltip.css";
 import right from "../../assets/images/greater-than.svg";
 
 const SearchTooltip = ({ setIsSearching }) => {
-  const { activeCategory, setActiveCategory, setActiveSubcategory } =
-    useContext(UiverseContext);
+  const {
+    activeCategory,
+    setActiveCategory,
+    setActiveSubcategory,
+    subCategoriesData,
+  } = useContext(UiverseContext);
 
   const handleSubcategoryClick = (value) => {
     setActiveSubcategory(value);
@@ -17,31 +21,33 @@ const SearchTooltip = ({ setIsSearching }) => {
   return (
     <div className="tooltip">
       <div className="searchbar-category-container">
-        {[...Array(5).keys()].map((index) => (
-          <div
-            key={index}
-            className={
-              activeCategory === index
-                ? "searchbar-category active"
-                : "searchbar-category"
-            }
-            onClick={() => setActiveCategory(index)}
-          >
-            <span>Website</span>
-            {activeCategory === index && <img src={right} />}
-          </div>
-        ))}
+        {["Websites", "UI Elements", "Color System", "Type System"].map(
+          (category, index) => (
+            <div
+              key={index}
+              className={
+                activeCategory === category
+                  ? "searchbar-category active"
+                  : "searchbar-category"
+              }
+              onClick={() => setActiveCategory(category)}
+            >
+              <span>{category}</span>
+              {activeCategory === category && <img src={right} />}
+            </div>
+          )
+        )}
       </div>
       <div className="searchbar-subcategory-container">
         <div className="heading">Explore Categories</div>
         <div className="searchbar-subcategory">
-          {[...Array(10).keys()].map((index) => (
+          {subCategoriesData?.map((subCategory, index) => (
             <div
               key={index}
               className="searchbar-subcategory-title"
-              onClick={() => handleSubcategoryClick(index)}
+              onClick={() => handleSubcategoryClick(subCategory?.name)}
             >
-              Project Management
+              {subCategory?.name}
             </div>
           ))}
         </div>

@@ -7,13 +7,21 @@ import right from "../../assets/images/greater-than.svg";
 import left from "../../assets/images/less-than.svg";
 
 const SearchSubcategory = () => {
-  const { activeSubcategory, setActiveSubcategory } =
-    useContext(UiverseContext);
+  const {
+    activeSubcategory,
+    activeCategory,
+    setActiveSubcategory,
+    subCategoriesData,
+  } = useContext(UiverseContext);
 
   const scrollContainerRef = useRef();
 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+
+  useEffect(() => {
+    setActiveSubcategory("All");
+  }, [activeCategory]);
 
   const checkOverflow = () => {
     if (scrollContainerRef.current) {
@@ -32,7 +40,7 @@ const SearchSubcategory = () => {
         left: scrollAmount,
         behavior: "smooth",
       });
-      setTimeout(checkOverflow, 100);
+      setTimeout(checkOverflow, 10);
     }
   };
 
@@ -42,6 +50,14 @@ const SearchSubcategory = () => {
     return () => window.removeEventListener("resize", checkOverflow);
   }, []);
 
+  useEffect(() => {
+    if (subCategoriesData?.length > 0) {
+      checkOverflow();
+    }
+  }, [subCategoriesData, activeCategory]);
+
+  console.log("sub-category is => ", subCategoriesData);
+
   return (
     <div className="search-subcategory-container">
       {canScrollLeft && (
@@ -50,13 +66,19 @@ const SearchSubcategory = () => {
         </div>
       )}
       <div className="search-subcategory" ref={scrollContainerRef}>
-        {[...Array(10).keys()].map((index) => (
+        <span
+          className={activeSubcategory === "All" ? "active" : ""}
+          onClick={() => setActiveSubcategory("All")}
+        >
+          All
+        </span>
+        {subCategoriesData?.map((subCategory, index) => (
           <span
             key={index}
-            className={activeSubcategory === index ? "active" : ""}
-            onClick={() => setActiveSubcategory(index)}
+            className={activeSubcategory === subCategory.name ? "active" : ""}
+            onClick={() => setActiveSubcategory(subCategory.name)}
           >
-            Project Management
+            {subCategory.name}
           </span>
         ))}
       </div>

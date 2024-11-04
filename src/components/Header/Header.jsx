@@ -1,14 +1,22 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "./header.css";
 
 import logo from "../../assets/images/logo.svg";
 import SearchTooltip from "../SearchTooltip/SearchTooltip";
+import { UiverseContext } from "../../Context/Context";
 
 const Header = () => {
   const [isSearching, setIsSearching] = useState(false);
+  const [searchField, setSearchField] = useState("");
+
+  const { setSearchValue } = useContext(UiverseContext);
+
+  useEffect(() => {
+    setSearchValue(searchField);
+  }, [searchField]);
 
   const inputRef = useRef(null);
 
@@ -44,6 +52,7 @@ const Header = () => {
             className="search-bar"
             placeholder="Search"
             onClick={() => setIsSearching(true)}
+            onChange={(e) => setSearchField(e.target.value)}
           />
           {isSearching && <SearchTooltip setIsSearching={setIsSearching} />}
         </div>
