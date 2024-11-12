@@ -47,11 +47,8 @@ export async function fetchOneWebsite(websiteId) {
 export async function fetchElementScreenshot() {
   const url = `${baseUrl}/elementScreenshot`;
 
-  console.log("Fetching from:", url);
-
   try {
     const response = await axios.get(url);
-    console.log("Response data:", response.data);
 
     return response.data.payload.data;
   } catch (error) {
@@ -59,3 +56,26 @@ export async function fetchElementScreenshot() {
     throw new Error("An error occurred while fetching the website");
   }
 }
+
+export async function sendCode(emailData) {
+  const url = `${baseUrl}/auth/send-code`;
+
+  console.log("email data in http is=====>", emailData);
+  console.log("Fetching from:", url);
+
+  try {
+    const response = await axios.post(url, emailData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response;
+
+    console.log("Response data:", response.data);
+  } catch (error) {
+    console.error("An error occurred while signing in", error);
+    throw new Error("An error occurred while while signing in");
+  }
+}
+

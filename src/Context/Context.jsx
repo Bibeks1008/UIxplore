@@ -26,13 +26,13 @@ export default function Contextprovider({ children }) {
   const { data: allWebsiteData, isFetching: isFetchingWebsites } = useQuery({
     queryKey: ["websites"],
     queryFn: fetchWebsites,
-    staleTime: 0,
+    staleTime: 10000,
   });
 
   const { data: allElementScreenshotData } = useQuery({
     queryKey: ["elementScreenshot"],
     queryFn: fetchElementScreenshot,
-    staleTime: 0,
+    staleTime: 10000,
   });
 
   useEffect(() => {
@@ -98,6 +98,7 @@ export default function Contextprovider({ children }) {
     subCategoriesData,
     allWebsiteData,
     websiteDataWithElements,
+    searchValue,
     setSearchValue,
     isFetchingWebsites,
   };

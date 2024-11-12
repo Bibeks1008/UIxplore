@@ -63,7 +63,9 @@ const Header = () => {
               <span className="web-section">Web</span>
               <span className="app-section">App</span>
             </div>
-            <button className="signin-btn">Sign in</button>
+            <Link to="/signin">
+              <button className="signin-btn">Sign in</button>
+            </Link>
           </>
         )}
       </div>

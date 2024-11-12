@@ -13,6 +13,8 @@ const SearchTooltip = ({ setIsSearching }) => {
     subCategoriesData,
   } = useContext(UiverseContext);
 
+  const limit = 20;
+
   const handleSubcategoryClick = (value) => {
     setActiveSubcategory(value);
     setIsSearching(false);
@@ -41,7 +43,7 @@ const SearchTooltip = ({ setIsSearching }) => {
       <div className="searchbar-subcategory-container">
         <div className="heading">Explore Categories</div>
         <div className="searchbar-subcategory">
-          {subCategoriesData?.map((subCategory, index) => (
+          {subCategoriesData.slice(0, limit)?.map((subCategory, index) => (
             <div
               key={index}
               className="searchbar-subcategory-title"

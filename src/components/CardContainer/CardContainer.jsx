@@ -14,9 +14,10 @@ const CardContainer = () => {
     allWebsiteData,
     websiteDataWithElements,
     isFetchingWebsites,
+    searchValue,
   } = useContext(UiverseContext);
 
-  console.log("activeCategory in cardcontainer =>", activeCategory);
+  console.log("Search value in cardcontainer =>", searchValue);
   const [filteredWebsiteData, setFilteredWebsiteData] = useState(
     activeCategory === "UI Elements" ? websiteDataWithElements : allWebsiteData
   );
@@ -26,6 +27,7 @@ const CardContainer = () => {
       activeCategory === "UI Elements"
         ? websiteDataWithElements
         : allWebsiteData;
+
     if (activeSubcategory !== "All" && activeCategory === "Websites") {
       filteredData = allWebsiteData?.filter(
         (data) => data?.website?.category?.name === activeSubcategory
@@ -69,26 +71,46 @@ const CardContainer = () => {
       );
     }
 
+    if (searchValue.length > 0) {
+      filteredData = filteredData?.filter((websiteData) =>
+        websiteData?.website?.name
+          ?.toLowerCase()
+          .includes(searchValue?.toLowerCase())
+      );
+    }
     setFilteredWebsiteData(filteredData);
   }, [
     activeCategory,
     activeSubcategory,
     allWebsiteData,
     websiteDataWithElements,
+    searchValue,
   ]);
 
   console.log("filtered SUBCATEGORY list is: ====>", filteredWebsiteData);
   console.log("all website data is: ====>", allWebsiteData);
   return (
-    <div className="card-container">
-      {isFetchingWebsites && <div className="loader">Loading Website Data...</div>}
+    <div
+      className={
+        activeCategory === "Color System" || activeCategory === "UI Elements"
+          ? "color-card-container"
+          : "card-container"
+      }
+    >
+      {isFetchingWebsites && (
+        <div className="loader">Loading Website Data...</div>
+      )}
       {!isFetchingWebsites &&
-        filteredWebsiteData?.map((websiteData, index) => (
-          <Card
-            key={websiteData?.website?._id}
-            websiteData={websiteData}
-            activeCategory={activeCategory}
-          />
+        (filteredWebsiteData?.length === 0 ? (
+          <div className="loader">No Result Found!</div>
+        ) : (
+          filteredWebsiteData?.map((websiteData, index) => (
+            <Card
+              key={websiteData?.website?._id}
+              websiteData={websiteData}
+              activeCategory={activeCategory}
+            />
+          ))
         ))}
     </div>
   );
