@@ -43,7 +43,7 @@ const SearchTooltip = ({ setIsSearching }) => {
       <div className="searchbar-subcategory-container">
         <div className="heading">Explore Categories</div>
         <div className="searchbar-subcategory">
-          {subCategoriesData.slice(0, limit)?.map((subCategory, index) => (
+          {subCategoriesData?.slice(0, limit)?.map((subCategory, index) => (
             <div
               key={index}
               className="searchbar-subcategory-title"
