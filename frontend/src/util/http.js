@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const queryClient = new QueryClient();
 
-const baseUrl = "https://uidiscover-backend.onrender.com/api";
+const baseUrl = "http://localhost:8080/api";
 
 export async function fetchCategories() {
   const url = `${baseUrl}/category`;
@@ -24,7 +24,7 @@ export async function fetchWebsites() {
   try {
     const response = await axios.get(url);
 
-    return response.data.payload.data;
+    return response?.data;
   } catch (error) {
     console.error("An error occurred while fetching the websites", error);
     throw new Error("An error occurred while fetching the websites");
@@ -37,7 +37,7 @@ export async function fetchOneWebsite(websiteId) {
   try {
     const response = await axios.get(url);
 
-    return response.data.payload.data;
+    return response?.data;
   } catch (error) {
     console.error("An error occurred while fetching the website", error);
     throw new Error("An error occurred while fetching the website");
@@ -50,7 +50,7 @@ export async function fetchElementScreenshot() {
   try {
     const response = await axios.get(url);
 
-    return response.data.payload.data;
+    return response?.data;
   } catch (error) {
     console.error("An error occurred while fetching the website", error);
     throw new Error("An error occurred while fetching the website");
