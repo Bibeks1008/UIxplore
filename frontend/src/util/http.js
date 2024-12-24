@@ -102,12 +102,14 @@ export async function addToFavourite(data) {
   try {
     const response = await axios.post(url, data, {
       headers: {
-        Authorization: token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     });
 
-    return response;
+    console.log("add to fav res ==========>", response);
+
+    return response?.data?.payload?.data;
   } catch (error) {
     console.error("An error occurred while adding to favourite", error);
     throw new Error("An error occurred while adding to favourite");
@@ -126,12 +128,12 @@ export async function fetchFavouriteWebsites(params) {
   try {
     const response = await axios.get(url, {
       headers: {
-        Authorization: token,
+        Authorization: "Bearer " + token,
       },
       params,
     });
 
-    return response?.data.payload.data;
+    return response?.data?.payload?.data;
   } catch (error) {
     console.error("An error occurred while fetching the websites", error);
     throw new Error("An error occurred while fetching the websites");
@@ -155,11 +157,11 @@ export async function deleteFromFavourite({ id }) {
   try {
     const response = await axios.delete(url, {
       headers: {
-        Authorization: token,
+        Authorization: "Bearer " + token,
       },
     });
 
-    return response;
+    return response?.data?.payload?.data;
   } catch (error) {
     console.error("An error occurred while deleting favourites", error);
     throw new Error("An error occurred while  deleting favourites");
