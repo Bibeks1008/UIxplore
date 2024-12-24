@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CategoryModule } from './category/category.module';
 import { PageModule } from './page/page.module';
 import { ElementModule } from './element/element.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ElementModule } from './element/element.module';
     CategoryModule,
     PageModule,
     ElementModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
