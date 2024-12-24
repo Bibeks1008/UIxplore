@@ -133,7 +133,7 @@ export class AuthService {
     user.isVerified = true;
     user.sessionExpiresAt = new Date(Date.now() + 7 * 24 * 30 * 60 * 1000);
 
-    const userData = user.save();
+    const userData = await user.save();
 
     return {
       message: 'Logged in successfully.',

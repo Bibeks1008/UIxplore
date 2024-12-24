@@ -6,6 +6,7 @@ import { CategoryModule } from './category/category.module';
 import { PageModule } from './page/page.module';
 import { ElementModule } from './element/element.module';
 import { AuthModule } from './auth/auth.module';
+import { FavouriteModule } from './favourite/favourite.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
     PageModule,
     ElementModule,
     AuthModule,
+    FavouriteModule,
   ],
   controllers: [],
   providers: [],
