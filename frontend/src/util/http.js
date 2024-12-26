@@ -3,7 +3,8 @@ import axios from "axios";
 
 export const queryClient = new QueryClient();
 
-const baseUrl = "http://localhost:8080/api";
+const baseUrl = "https://uixplore-backend-production.up.railway.app/api";
+// const baseUrl = "http://localhost:8080/api";
 
 export async function fetchCategories() {
   const url = `${baseUrl}/category`;
