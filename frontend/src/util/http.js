@@ -1,9 +1,11 @@
+/** @format */
+
 import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 export const queryClient = new QueryClient();
 
-const baseUrl = "https://uixplore-backend-production.up.railway.app/api";
+const baseUrl = "https://project-1-production-03ef.up.railway.app/api";
 // const baseUrl = "http://localhost:8080/api";
 
 export async function fetchCategories() {
