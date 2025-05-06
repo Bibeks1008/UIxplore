@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useContext } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +8,7 @@ import logo from "../assets/images/logo.svg";
 import "./CSS/signin.css";
 import { useMutation } from "@tanstack/react-query";
 import { sendCode, verifyCode } from "../util/http";
-import OtpField from "../components/OtpField/otpfield";
+import OtpField from "../components/OtpField/OtpField";
 import { UiverseContext } from "../Context/Context";
 
 const SignIn = () => {
